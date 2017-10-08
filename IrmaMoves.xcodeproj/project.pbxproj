@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		DD86E3041F8AAF5400D09F3F /* IrmaMoves */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IrmaMoves; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD86E3071F8AAF5400D09F3F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DD86E30F1F8AB4F400D09F3F /* IrmaMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IrmaMoves.h; path = ../../../Desktop/IrmaMoves/IrmaMoves.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				DD86E3071F8AAF5400D09F3F /* main.c */,
+				DD86E30F1F8AB4F400D09F3F /* IrmaMoves.h */,
 			);
 			path = IrmaMoves;
 			sourceTree = "<group>";
