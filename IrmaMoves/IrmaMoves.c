@@ -1,5 +1,7 @@
 //  Data Structures and Algorithms
+//  Programming Project 1
 //  IrmaMoves.c
+//
 //  IrmaMoves
 //
 //  Created by Kyle Spomer on 10/8/17.
@@ -11,18 +13,13 @@
 #include <string.h>
 #include "IrmaMoves.h"
 
-
-    void failwhale(void)
-    {
-        printf("fail whale :(\n");
-        exit(0);
-    }
 char **createMapBoard(void){
-    char **board = malloc(8*sizeof(char *));
+    char **board = malloc(8*sizeof(char *)); //dynamically allocate memory for rows
     
-    for(int i = 0 ; i < 8 ; i++)
+    for(int i = 0 ; i < 8 ; i++) //dynamically allocate memory for indiviual elements
         board[i] = malloc( 8*sizeof(char) );
-    board[0][0] = 'F';
+    
+    board[0][0] = 'F'; //initialize the array with the map layout
     board[0][1] = 'F';
     board[0][2] = ' ';
     board[0][3] = ' ';
@@ -87,27 +84,31 @@ char **createMapBoard(void){
     board[7][6] = 'D';
     board[7][7] = ' ';
     
-    
     return board;
 };
 
 
 char **destroyMapBoard(char **board){
+    //frees up the memory allocated to the board
     free(board);
     return NULL;
-}
+};
 
 void printMapBoard(char **board){
+    //printing the map in the specified format
     printf("========\n");
     for (int i = 0; i < 8; i++){
         for (int j = 0; j < 8; j++){
             printf("%c",board[i][j]);}
         printf("\n");}
-    printf("========\n");
+    printf("========");
+    printf("\n");
+    printf("\n");
 };
 
 
 int colToInt(char col){
+    //this is a helper function to convert the char col index to a usable int index
     if (col == 'a')
         return 0;
     if (col == 'b')
@@ -129,13 +130,65 @@ int colToInt(char col){
         return 0;
         
     }
-}
+};
+
+void vertMove(char **board, Move *Irma){
+    //this is a helper function to handle N->S and S->N movements
+    int direction = 0;
+    
+    //Determing the direction
+    if (Irma->from_loc.row > Irma->to_loc.row)
+        direction = -1; //North
+    if (Irma->from_loc.row < Irma->to_loc.row)
+        direction = 1; //South
+    if (Irma->from_loc.row == Irma->to_loc.row)
+        direction = 0; //No movement
+    
+    //Handles wind speeds and wind gusts for each space moved
+    for(int i = Irma->from_loc.row; i != Irma->to_loc.row; i+= direction){
+        if(board[i+direction][colToInt(Irma->to_loc.col)] == ' '){
+            Irma->irma.ws+=6;
+            Irma->irma.wg+=3;
+        }
+        else if(board[i+direction][colToInt(Irma->to_loc.col)] != ' '){ //else if implemented due to bugs with else
+            Irma->irma.ws-=2;
+            Irma->irma.wg-=1;
+        }
+    }
+};
+
+void horizMove(char **board, Move *Irma){
+    //this is a helper function to handle E->W and W->E movements
+    int direction = 0;
+    
+    //Determining the direction
+    if (colToInt(Irma->from_loc.col) > colToInt(Irma->to_loc.col))
+        direction = -1; //West
+    if (colToInt(Irma->from_loc.col) < colToInt(Irma->to_loc.col))
+        direction = 1; //East
+    if (colToInt(Irma->from_loc.col) == colToInt(Irma->to_loc.col)){
+        direction = 0; // No movement
+    }
+
+    //Handles wind speeds and wind gusts for each space moved
+    for(int i = colToInt(Irma->from_loc.col); i != colToInt(Irma->to_loc.col); i += direction){
+
+        if(board[Irma->from_loc.row][i+direction] == ' '){
+            Irma->irma.ws+=10;
+            Irma->irma.wg+=5;
+        }
+        else if(board[Irma->from_loc.row][i+direction] != ' '){ //else if implemented due to bugs with else
+            Irma->irma.ws-=15;
+            Irma->irma.wg-=10;
+        }
+    }
+};
 
 char **predictIrmaChange (char* str, Move *irmaMove){
     //initialize empty board
     char **board = createMapBoard();
-    printMapBoard(board);
     
+    //parse the input string
     parseNotationString(str, irmaMove);
     
     //get initial coordinates
@@ -147,6 +200,10 @@ char **predictIrmaChange (char* str, Move *irmaMove){
     printMapBoard(board);
     destroyMapBoard(board);
     
+    //calculate moves effect on ws and wg
+    horizMove(board, irmaMove);
+    vertMove(board, irmaMove);
+    
     //get final coordinates
     row = irmaMove->to_loc.row;
     col = colToInt(irmaMove->to_loc.col);
@@ -157,9 +214,6 @@ char **predictIrmaChange (char* str, Move *irmaMove){
     printMapBoard(board);
     
     return board;
-    
-    
-    
 };
 
 void parseNotationString(char *str, Move *Irma){
@@ -167,60 +221,30 @@ void parseNotationString(char *str, Move *Irma){
     Irma->from_loc.col = str[0];
     Irma->from_loc.row = atoi(&str[1]);
    
-    //parse wind speeds
     char temp[3];
-    for (int i = 0; i < 3; i ++){
+    
+    //parse wind speeds
+    for (int i = 0; i < 3; i ++)
         temp[i] = str[i+3];
-    }
     Irma->irma.ws = atoi(temp);
-
+    
     //parse wind gusts
-    for (int i = 0; i < 3; i ++){
+    for (int i = 0; i < 3; i ++)
         temp[i] = str[i+7];
-    }
     Irma->irma.wg = atoi(temp);
     
     //parse final location
     Irma->to_loc.col = str[11];
     Irma->to_loc.row = atoi(&str[12]);
     
-    
-    
-    
-    
-    
-    
-    
 };
 
-int main(void)
-{
-    Move irmaMove;
-    
-    // With this test case, I'm checking whether your parseNotationString()
-    // function correctly parses through a string of algebraic notation.
-    // This test case is also designed to help show you exactly which fields
-    // should be set, and how they should be set, when parsing these strings.
-    
-    predictIrmaChange("e2 150 100 c3", &irmaMove);
-    
-    // Check that irma Move has been properly initialized.
-    if (irmaMove.from_loc.col != 'e' || irmaMove.from_loc.row != 2)
-        failwhale();
-    if (irmaMove.to_loc.col != 'c' || irmaMove.to_loc.row != 3)
-        failwhale();
-    if (irmaMove.irma.ws != 150 || irmaMove.irma.wg != 100)
-        failwhale();
-  
-    printf("Hooray!\n");
-    
-    return 0;
-}
+
+double difficultyRating(void){
+    return 3;
+};
 
 
-
-/*
-double difficultyRating(void);
-
-double hoursSpent(void);
- */
+double hoursSpent(void){
+    return 5;
+};
