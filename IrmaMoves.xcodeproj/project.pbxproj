@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DD86E3081F8AAF5400D09F3F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E3071F8AAF5400D09F3F /* main.c */; };
+		DD86E32D1F8D323B00D09F3F /* testcase01.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E3211F8D323800D09F3F /* testcase01.c */; };
+		DD86E32E1F8D323B00D09F3F /* IrmaMoves.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E3251F8D323900D09F3F /* IrmaMoves.c */; };
+		DD86E32F1F8D323B00D09F3F /* testcase02.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E3281F8D323900D09F3F /* testcase02.c */; };
+		DD86E3301F8D323B00D09F3F /* testcase05.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E3291F8D323A00D09F3F /* testcase05.c */; };
+		DD86E3311F8D323B00D09F3F /* testcase03.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E32A1F8D323A00D09F3F /* testcase03.c */; };
+		DD86E3321F8D323B00D09F3F /* testcase04.c in Sources */ = {isa = PBXBuildFile; fileRef = DD86E32C1F8D323A00D09F3F /* testcase04.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +32,20 @@
 		DD86E3041F8AAF5400D09F3F /* IrmaMoves */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IrmaMoves; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD86E3071F8AAF5400D09F3F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		DD86E30F1F8AB4F400D09F3F /* IrmaMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IrmaMoves.h; path = ../../../Desktop/IrmaMoves/IrmaMoves.h; sourceTree = "<group>"; };
+		DD86E31F1F8D323800D09F3F /* testcase04.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testcase04.txt; path = IrmaMoves/testcase04.txt; sourceTree = "<group>"; };
+		DD86E3201F8D323800D09F3F /* whatever.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = whatever.txt; path = IrmaMoves/whatever.txt; sourceTree = "<group>"; };
+		DD86E3211F8D323800D09F3F /* testcase01.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = testcase01.c; path = IrmaMoves/testcase01.c; sourceTree = "<group>"; };
+		DD86E3221F8D323800D09F3F /* testcase02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testcase02.txt; path = IrmaMoves/testcase02.txt; sourceTree = "<group>"; };
+		DD86E3231F8D323900D09F3F /* testcase03.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testcase03.txt; path = IrmaMoves/testcase03.txt; sourceTree = "<group>"; };
+		DD86E3241F8D323900D09F3F /* IrmaMoves.exe */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = IrmaMoves.exe; path = IrmaMoves/IrmaMoves.exe; sourceTree = "<group>"; };
+		DD86E3251F8D323900D09F3F /* IrmaMoves.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = IrmaMoves.c; path = IrmaMoves/IrmaMoves.c; sourceTree = "<group>"; };
+		DD86E3261F8D323900D09F3F /* testcase05.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testcase05.txt; path = IrmaMoves/testcase05.txt; sourceTree = "<group>"; };
+		DD86E3271F8D323900D09F3F /* IrmaMoves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IrmaMoves.h; path = IrmaMoves/IrmaMoves.h; sourceTree = "<group>"; };
+		DD86E3281F8D323900D09F3F /* testcase02.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = testcase02.c; path = IrmaMoves/testcase02.c; sourceTree = "<group>"; };
+		DD86E3291F8D323A00D09F3F /* testcase05.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = testcase05.c; path = IrmaMoves/testcase05.c; sourceTree = "<group>"; };
+		DD86E32A1F8D323A00D09F3F /* testcase03.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = testcase03.c; path = IrmaMoves/testcase03.c; sourceTree = "<group>"; };
+		DD86E32B1F8D323A00D09F3F /* testcase01.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testcase01.txt; path = IrmaMoves/testcase01.txt; sourceTree = "<group>"; };
+		DD86E32C1F8D323A00D09F3F /* testcase04.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = testcase04.c; path = IrmaMoves/testcase04.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +62,20 @@
 		DD86E2FB1F8AAF5400D09F3F = {
 			isa = PBXGroup;
 			children = (
+				DD86E3251F8D323900D09F3F /* IrmaMoves.c */,
+				DD86E3241F8D323900D09F3F /* IrmaMoves.exe */,
+				DD86E3271F8D323900D09F3F /* IrmaMoves.h */,
+				DD86E3211F8D323800D09F3F /* testcase01.c */,
+				DD86E32B1F8D323A00D09F3F /* testcase01.txt */,
+				DD86E3281F8D323900D09F3F /* testcase02.c */,
+				DD86E3221F8D323800D09F3F /* testcase02.txt */,
+				DD86E32A1F8D323A00D09F3F /* testcase03.c */,
+				DD86E3231F8D323900D09F3F /* testcase03.txt */,
+				DD86E32C1F8D323A00D09F3F /* testcase04.c */,
+				DD86E31F1F8D323800D09F3F /* testcase04.txt */,
+				DD86E3291F8D323A00D09F3F /* testcase05.c */,
+				DD86E3261F8D323900D09F3F /* testcase05.txt */,
+				DD86E3201F8D323800D09F3F /* whatever.txt */,
 				DD86E3061F8AAF5400D09F3F /* IrmaMoves */,
 				DD86E3051F8AAF5400D09F3F /* Products */,
 			);
@@ -121,7 +155,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD86E32D1F8D323B00D09F3F /* testcase01.c in Sources */,
+				DD86E32E1F8D323B00D09F3F /* IrmaMoves.c in Sources */,
+				DD86E3311F8D323B00D09F3F /* testcase03.c in Sources */,
+				DD86E3321F8D323B00D09F3F /* testcase04.c in Sources */,
+				DD86E3301F8D323B00D09F3F /* testcase05.c in Sources */,
 				DD86E3081F8AAF5400D09F3F /* main.c in Sources */,
+				DD86E32F1F8D323B00D09F3F /* testcase02.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
